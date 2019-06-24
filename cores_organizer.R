@@ -17,3 +17,10 @@ for(i in 1:(ncol(datT1)-1)){
   meanring[,i] <- (datT1[,i+1] + datT2[,i+1] + datT3[,i+1])/3
 }
 
+#add column names
+colnames(meanring) <- colnames(datT1[2:15])
+
+#final data frame w/ years
+cores <- data.frame(year=datT1$year,meanring)
+head(cores)
+
