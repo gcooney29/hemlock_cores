@@ -67,8 +67,9 @@ for(i in 1:dim(cores2)[2]){
                                method = paste(methodD[i]))
 }
 
-#add in column names 
+#add in column names and years (row names)
 colnames(coresD) <- colnames(cores2)
+row.names(coresD) <- rownames(cores2)
 
 
 
