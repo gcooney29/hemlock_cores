@@ -70,6 +70,12 @@ for(i in 1:dim(cores2)[2]){
 #add in column names and years (row names)
 colnames(coresD) <- colnames(cores2)
 row.names(coresD) <- rownames(cores2)
+coresD <- as.data.frame(coresD)
+
+####lining up years####
+
+plot(rownames(coresD), coresD$T_5B, type = "l", col = "purple")
+lines(rownames(coresD), coresD$T_5B, type = "l", col = "blue")
 
 
 
