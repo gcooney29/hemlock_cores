@@ -79,6 +79,7 @@ D0A <- data.frame(year = seq(1984, 2017),
 #counted 2018 as part of 2017; remove extra year
 D0B <- data.frame(year = seq(1946, 2017),
                   T_0B = c(coresDspline[year>=1945&year<=2016, 2]))
+D0B$T_0B <- ifelse(D0B$year >= 1977& D0B$year<= 1982, NA, D0B$T_0B)
 
 #missing rings at the end, adjust for false ring in 1993 
 D2A<- data.frame (year = seq(1981, 2017),
@@ -155,4 +156,19 @@ allmeans <- data.frame(year = year, width =
                        width.n = apply(sampleDF[,2:13], 1, "na.lengths"))
 
 rm(list=setdiff(ls(), c("allmeans")))
+
+plot(allmeans$year, allmeans$width, type = "l", col = "gold")
+
+points(D0A$year, D0A$T_0A, type = "l", col = "orange")
+plot(D0B$year, D0B$T_0B, type = "l")
+points(D2A$year, D2A$T_2A, type = "l")
+points(D2B$year, D2B$T_2B, type = "l", col = "darkgreen")
+points(D3A$year, D3A$T_3A, type = "l")
+points(D3B$year, D3B$T_3B, type = "l", col = "blue")
+points(D4A$year, D4A$T_4A, type = "l")
+points(D4B$year, D4B$T_4B, type = "l", col = "red")
+points(D5A$year, D5A$T_5A, type = "l")
+points(D5B$year, D5B$T_5B, type = "l", col = "pink")
+points(D6A$year, D6A$T_6A, type = "l", col = "turquoise")
+points(D6B$year, D6B$T_6B, type = "l", col = "purple")
 
